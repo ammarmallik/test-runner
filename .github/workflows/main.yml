@@ -11,12 +11,12 @@ on:
   workflow_dispatch:
 jobs:
   build1:
-    runs-on: [self-hosted, macos-latest]
+    runs-on: self-hosted
     steps:
       - name: Run a one-line script1
         run: echo build1
   build2:
-    runs-on: ["ubuntu", self-hosted]
+    runs-on: self-hosted
     steps:
       - name: Run a one-line script
         run: echo build2
