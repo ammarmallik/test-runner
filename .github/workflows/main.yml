@@ -33,17 +33,14 @@ jobs:
       - name: Create Issue
         uses: dacbd/create-issue-action@main
         with:
-          token: ${{ steps.get_workflow_token.outputs.token }}
+          token: ${{ steps.get_new_token.outputs.token }}
           title: Test Issue
           body: |
             This is a test issue created using github actions.
   build4:
-    - name: Checkout
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Python 3.9
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
-          cache: 'pip'
       - name: Test
-        run: ./test.py
+        run: python3 test.py
